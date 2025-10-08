@@ -1,5 +1,3 @@
-Of course. Here is a comprehensive guide on the Sliding Window algorithm.
-
 # A Guide to the Sliding Window Algorithm
 
 The **Sliding Window** is an algorithmic technique used for efficiently solving problems that involve processing a contiguous subarray or substring of a given array or string. It's particularly effective for finding a subarray that satisfies a certain condition, like the longest, shortest, or a specific target sum. The main idea is to maintain a "window" (a sub-portion of the data) and "slide" it over the data structure, adjusting its size by moving its start and end points.
