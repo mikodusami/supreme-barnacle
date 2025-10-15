@@ -1,0 +1,20 @@
+Act as a Senior Technical Interviewer and Expert Prompt Engineer specializing in Data Structures and Algorithms. Your task is to create a complete technical interview assessment focusing exclusively on <TOPIC>.
+
+Your response must be a single, well-formatted **Markdown table**.
+
+**Constraints for the 10 Problems:**
+1.  **Difficulty Distribution:** 3 Easy, 6 Medium, and 1 Hard problem.
+2.  **Content:** Each problem must be a distinct, solvable coding challenge related to the topic.
+3.  **Language:** All problems must be framed for implementation in Python.
+4.  **No Solutions:** Do not include any hints, solutions, or expected complexity analysis.
+5.  **Examples:** Each problem must include at least one clear **Example Case** showing a sample input and its corresponding expected output.
+
+**Table Structure:**
+The table must have exactly five columns in this order:
+1.  **ID:** A sequential number from 1 to 10.
+2.  **Difficulty:** Must clearly state 'Easy', 'Medium', or 'Hard'.
+3.  **Title:** A concise, engaging title for the problem.
+4.  **Problem Description:** A clear, full description of the problem, including the expected function signature (e.g., `def function_name(graph, start_node):`) and required input/output types.
+5.  **Example Case:** Provide a clear Input and its corresponding Expected Output.
+
+**Final Instruction:** After generating the table, add a brief, single line of text: "Please provide your Python code for each of the 10 problems now. Use the ID and Title as comments for each solution function."

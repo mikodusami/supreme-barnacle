@@ -1,0 +1,21 @@
+arrays
+hashing
+slidingwindow
+matrix
+searchingsorting
+trees
+graphs
+
+-----
+stacks
+linkedlist
+queues
+heaps
+intervals
+
+-----
+1D dynamic programming
+2D dynamic programming
+binary
+math 
+geomerty
