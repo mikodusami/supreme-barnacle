@@ -15,6 +15,12 @@ def max_profit(prices: List[int]) -> int:
         int: Maximum profit achievable, or 0 if no profit possible
     """
     pass
+    max_profit = 0
+    min_buying = prices[0]
+    for i in range(0, len(prices)):
+        min_buying = min(min_buying, prices[i])
+        max_profit = max(max_profit, prices[i] - min_buying)
+    return max_profit
 
 class TestMaxProfit(unittest.TestCase):
     def test_example_case(self):

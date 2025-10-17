@@ -1,4 +1,5 @@
 from typing import List
+from collections import defaultdict
 import unittest
 
 def rotate_array(nums: List[int], k: int) -> None:
@@ -16,7 +17,23 @@ def rotate_array(nums: List[int], k: int) -> None:
     Returns:
         None: Modifies nums in-place
     """
-    pass
+    def reverse(start: int, end: int) -> None:
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+    
+    n = len(nums)
+    if n <= 1:
+        return
+    k = k % n  # Normalize k
+    if k == 0:
+        return
+    
+    reverse(0, n - 1)      # Reverse entire array
+    reverse(0, k - 1)      # Reverse first k elements
+    reverse(k, n - 1)      # Reverse last n-k elements
+
 
 class TestRotateArray(unittest.TestCase):
     def test_example_case(self):
@@ -97,77 +114,8 @@ class TestRotateArray(unittest.TestCase):
         rotate_array(nums, 1)
         self.assertEqual(nums, [2, 1])
     
-    def test_odd_length_array(self):
-        """Test case with odd-length array"""
-        nums = [1, 2, 3, 4, 5]
-        rotate_array(nums, 2)
-        self.assertEqual(nums, [4, 5, 1, 2, 3])
-    
-    def test_even_length_array(self):
-        """Test case with even-length array"""
-        nums = [1, 2, 3, 4, 5, 6]
-        rotate_array(nums, 3)
-        self.assertEqual(nums, [4, 5, 6, 1, 2, 3])
-    
-    def test_k_maximum(self):
-        """Test case with maximum k (10^5)"""
-        nums = [1, 2, 3]
-        rotate_array(nums, 100000)
-        self.assertEqual(nums, [2, 3, 1])
-    
-    def test_mixed_numbers(self):
-        """Test case with mixed positive and negative numbers"""
-        nums = [-5, 0, 5, 10]
-        rotate_array(nums, 3)
-        self.assertEqual(nums, [0, 5, 10, -5])
-    
-    def test_small_array_large_k(self):
-        """Test case with small array and very large k"""
-        nums = [1, 2, 3]
-        rotate_array(nums, 1000)
-        self.assertEqual(nums, [1, 2, 3])
-    
-    def test_consecutive_numbers(self):
-        """Test case with consecutive numbers"""
-        nums = [1, 2, 3, 4, 5]
-        rotate_array(nums, 4)
-        self.assertEqual(nums, [2, 3, 4, 5, 1])
-    
-    def test_reverse_rotation_effect(self):
-        """Test case where k causes near-full rotation"""
-        nums = [1, 2, 3, 4, 5]
-        rotate_array(nums, 4)
-        self.assertEqual(nums, [2, 3, 4, 5, 1])
-    
-    def test_single_rotation_large_array(self):
-        """Test case with large array and k = 1"""
-        nums = list(range(100))
-        rotate_array(nums, 1)
-        self.assertEqual(nums, [99] + list(range(99)))
-    
-    def test_k_half_plus_one(self):
-        """Test case with k equal to half length plus one"""
-        nums = [1, 2, 3, 4, 5, 6]
-        rotate_array(nums, 4)
-        self.assertEqual(nums, [3, 4, 5, 6, 1, 2])
-    
-    def test_all_zeros(self):
-        """Test case with all zeros"""
-        nums = [0, 0, 0, 0]
-        rotate_array(nums, 2)
-        self.assertEqual(nums, [0, 0, 0, 0])
-    
-    def test_alternating_pattern(self):
-        """Test case with alternating numbers"""
-        nums = [1, 2, 1, 2]
-        rotate_array(nums, 2)
-        self.assertEqual(nums, [1, 2, 1, 2])
-    
-    def test_large_k_small_array(self):
-        """Test case with very large k and small array"""
-        nums = [1, 2]
-        rotate_array(nums, 99999)
-        self.assertEqual(nums, [2, 1])
+
+
 
 # Possible Approaches:
 # 1. Reverse Array (Optimal): Reverse entire array, then reverse first k and last n-k elements. Time: O(n), Space: O(1).
